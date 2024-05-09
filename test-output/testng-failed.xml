@@ -8,6 +8,7 @@
           <include name="ableToAddResidentsToPersonalContact"/>
           <include name="ableToIncludeResidentInPersonalInterest"/>
           <include name="browserLaunch"/>
+          <include name="mailOptionIsDisplayWhenMailIdAvailable"/>
         </methods>
       </class> <!-- irpWebModulePackage.CommunityDirectoryWebModule -->
     </classes>

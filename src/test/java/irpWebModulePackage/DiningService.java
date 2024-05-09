@@ -17,7 +17,7 @@ public class DiningService extends Base_class{
 		roomDetails functionCall = new roomDetails();
 
 		locator.getDiningServiceMenuButton().click();
-		functionCall.callRoomDetails();
+		functionCall.callRoomDetails("irp_e2test", "9LLY43GTQRGO", "PERCONT");
 		Thread.sleep(2000);
 		boolean dataUnavailableMessage = false;
 		// ******Find and Navigate to the Dining Active Event from the Calendar

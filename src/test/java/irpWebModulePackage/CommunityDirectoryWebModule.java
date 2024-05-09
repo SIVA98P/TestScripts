@@ -20,7 +20,7 @@ public class CommunityDirectoryWebModule extends Base_class{
 		RequestedUrlwillBeLaunch("https://e2testing.mycatie.com/ccrc_v2/communityDirectory/");
 		roomDetails functionCall = new roomDetails();
 		
-		functionCall.callRoomDetails();
+		functionCall.callRoomDetails("irp_e2test", "9LLY43GTQRGO", "PERCONT");
 	}
 
 	//@Test( priority = 1)

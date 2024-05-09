@@ -3,7 +3,6 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.PageFactory;
 import Base.Base_class;
 
@@ -12,22 +11,7 @@ public class webModuleElementLocator extends Base_class{
 
 			PageFactory.initElements(driver, this);
 		}
-		@FindBy(xpath = "//a[text()='checkIn/']")
-		private WebElement checkInMenuButton;
 		
-		@FindBy(xpath = "//div[text()='Ok']")
-		private WebElement checkInOkButton;
-		
-		@FindBy(xpath = "//div[text()='Check In Now']")
-		private WebElement checkInNowButton;
-		
-		@FindBy(xpath = "//div[text()='Check-In message already sent']")
-		private WebElement checkInAlreadySent;
-		
-		//***********Bulletin Board**************
-		
-		@FindBy(xpath = "//a[text()='bulletinBoard/']")
-		private WebElement bulletinBoardMenuButton;
 		
 		//**********Community Directory************
 		
@@ -104,8 +88,8 @@ public class webModuleElementLocator extends Base_class{
 		@FindBy(xpath = "//img[@data-testid='close-image']")
 		private WebElement closeEnlargeImg;
 		
-		@FindBy(xpath = "//img[@data-testid='first-email-15']")
-		private WebElement closeEnlargeImg;
+		// @FindBy(xpath = "//img[@data-testid='first-email-15']")
+		// private WebElement closeEnlargeImg;
 		
 		
 		
@@ -211,80 +195,7 @@ public class webModuleElementLocator extends Base_class{
 		@FindBy(xpath = "//div[@class='popup-description flexAlignCenterJustifyCenter']")
 		private WebElement orderSuccessMessage;
 		
-	//********* Employee Check_In**********
-		
-		
-		@FindBy(xpath = "//a[text()='employeeCheckin/']")
-		private WebElement employeeCheckInMenuButton;
-		
-		@FindBy(xpath = "//div[text()='Loading']")
-		private WebElement loadingScreen;
-		
-		@FindBy(xpath = "//div[@class='employee-checkin-entry-input']")
-		private WebElement employeeInput;
-		
-		@FindBy(xpath = "//div[@class='employee-checkin-keypad-item']")
-		private List<WebElement> KeyPad;
-		
-		@FindBy(id = "1")
-		private WebElement keyOne;
-		
-		@FindBy(id = "2")
-		private WebElement keyTwo;
-		
-		@FindBy(id = "3")
-		private WebElement keyThree;
-		
-		@FindBy(id = "4")
-		private WebElement keyFour;
-		
-		@FindBy(id = "5")
-		private WebElement keyFive;
-		
-		@FindBy(id = "6")
-		private WebElement keySix;
-		
-		@FindBy(id = "7")
-		private WebElement keySeven;
-		
-		@FindBy(id = "8")
-		private WebElement keyEight;
-		
-		@FindBy(id = "9")
-		private WebElement keyNine;
-		
-		@FindBy(id = "0")
-		private WebElement keyZero;
-		
-		@FindBy(xpath = "//div[text()='C']")
-		private WebElement clearData;
-		
-		@FindBy(xpath = "//div[@class='employee-checkin-backspace flexAlignCenterJustifyCenter']")
-		private WebElement removeData;
-		
-		@FindBy(xpath = "//div[text()='Staff Id must be minimum 6 Digits']")
-		private WebElement minimumSixDigitAlertMessage;
-		
-		@FindBy(xpath = "//div[text()='Staff Id Length Must Be 10 Digit']")
-		private WebElement TenDigitAlertMessage;
-		
-		@FindBy(xpath = "//div[text()='Invalid Staff Id']")
-		private WebElement invalidStaffIdAlertMessage;
-		
-		@FindBy(xpath = "//div[@class='employee-status-update-title']")
-		private WebElement employeeUserName;
-		
-		@FindBy(xpath = "//button[text()='Login']")
-		private WebElement loginButton;
-		
-		@FindBy(xpath = "//div[text()='Activity Logged']")
-		private WebElement activityLoggedAlertMessage;
-		
-		@FindBy(xpath = "//button[text()='Log out']")
-		private WebElement logOutButton;
-		
-		@FindBy(xpath = "//button[text()=' Submit ']")
-		private WebElement submitButton;
+	
 		  
 		//******************* Survey Center **********************
 		
@@ -743,27 +654,7 @@ public class webModuleElementLocator extends Base_class{
 		
 
 
-		public WebElement getCheckInMenuButton() {
-			return checkInMenuButton;
-		}
-
 		
-		public WebElement getCheckInOkButton() {
-			return checkInOkButton;
-		}
-
-
-		public WebElement getCheckInNowButton() {
-			return checkInNowButton;
-		}
-
-		public WebElement getCheckInAlreadySent() {
-			return checkInAlreadySent;
-		}
-
-		public WebElement getBulletinBoardMenuButton() {
-			return bulletinBoardMenuButton;
-		}
 
 		public WebElement getCommunityDirectoryMenuButton() {
 			return communityDirectoryMenuButton;
@@ -997,103 +888,6 @@ public class webModuleElementLocator extends Base_class{
 		public WebElement getOrderSuccessMessage() {
 			return orderSuccessMessage;
 		}
-
-		public WebElement getEmployeeCheckInMenuButton() {
-			return employeeCheckInMenuButton;
-		}
-
-		public WebElement getLoadingScreen() {
-			return loadingScreen;
-		}
-
-		public WebElement getEmployeeInput() {
-			return employeeInput;
-		}
-
-		public WebElement getKeyOne() {
-			return keyOne;
-		}
-
-		public WebElement getKeyTwo() {
-			return keyTwo;
-		}
-
-		public WebElement getKeyThree() {
-			return keyThree;
-		}
-
-		public WebElement getKeyFour() {
-			return keyFour;
-		}
-
-		public WebElement getKeyFive() {
-			return keyFive;
-		}
-
-		public WebElement getKeySix() {
-			return keySix;
-		}
-
-		public WebElement getKeySeven() {
-			return keySeven;
-		}
-
-		public WebElement getKeyEight() {
-			return keyEight;
-		}
-
-		public WebElement getKeyNine() {
-			return keyNine;
-		}
-
-		public WebElement getKeyZero() {
-			return keyZero;
-		}
-
-		public WebElement getClearData() {
-			return clearData;
-		}
-
-		public WebElement getRemoveData() {
-			return removeData;
-		}
-
-		public WebElement getMinimumSixDigitAlertMessage() {
-			return minimumSixDigitAlertMessage;
-		}
-
-		public WebElement getTenDigitAlertMessage() {
-			return TenDigitAlertMessage;
-		}
-
-		public WebElement getInvalidStaffIdAlertMessage() {
-			return invalidStaffIdAlertMessage;
-		}
-
-		public WebElement getEmployeeUserName() {
-			return employeeUserName;
-		}
-
-		public WebElement getLoginButton() {
-			return loginButton;
-		}
-
-		public WebElement getActivityLoggedAlertMessage() {
-			return activityLoggedAlertMessage;
-		}
-
-		public WebElement getLogOutButton() {
-			return logOutButton;
-		}
-
-		public List<WebElement> getKeyPad() {
-			return KeyPad;
-		}
-
-		public WebElement getSubmitButton() {
-			return submitButton;
-		}
-
 
 		public WebElement getSurveyMenuButton() {
 			return surveyMenuButton;

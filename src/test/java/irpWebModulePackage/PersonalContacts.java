@@ -1,5 +1,7 @@
 package irpWebModulePackage;
 
+import static org.junit.Assert.assertSame;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import java.awt.AWTException;
 import java.io.IOException;
@@ -8,18 +10,18 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import Base.Base_class;
 import Locators.webModuleElementLocator;
+
 public class PersonalContacts extends Base_class {
+	browserLauch launchBrowser = new browserLauch();
 	roomDetails functionCall = new roomDetails();
 
-	@Test(priority = 1)
+	@Test(priority = 1, groups = {"personalCotnact"})
 	public void creatingpersonalContactProfile() throws Exception {
 
-		RequestedBrowserWillBelaunch("chrome");
-		driver.manage().window().maximize();
-		RequestedUrlwillBeLaunch("https://e2testing.mycatie.com/ccrc_v2/personalContacts/");
-
+		launchBrowser.callingBrowser();
+		
 		webModuleElementLocator locator = new webModuleElementLocator();
-		functionCall.callRoomDetails();
+		functionCall.callRoomDetails("irp_e2test", "9LLY43GTQRGO", "PERCONT");
 
 		boolean newContactButtonDisplay = false;
 		Thread.sleep(2000);
@@ -37,6 +39,7 @@ public class PersonalContacts extends Base_class {
 			locator.getLastNameField().sendKeys("Devic");
 			locator.getPhoneNumberField().sendKeys("7489102356");
 			locator.getZipCodeField().sendKeys("631002");
+			locator.getCreateContactEmailAddress().sendKeys("631002");
 
 			boolean addToGroupOption = false;
 
@@ -60,19 +63,19 @@ public class PersonalContacts extends Base_class {
 					System.out.println("Add to group button locator not found");
 				}
 				if(GroupAvailable) {
-					Thread.sleep(2000);
 					locator.getGroupAvailable().click();
-					Thread.sleep(2000);
-					locator.getSaveToContactButton().click();
-					Thread.sleep(2000);
-					locator.getCloseButton().click();
-				}else {
-					System.out.println("*****"+locator.getNoGroupAvailableTextMessage().getText()+"*******");
-					Thread.sleep(2000);
-					locator.getSaveToContactButton().click();
-					Thread.sleep(2000);
-					locator.getCloseButton().click();
+				} else {
+					System.out.println("*****" + locator.getNoGroupAvailableTextMessage().getText() + "*******");
 				}
+				Thread.sleep(2000);
+				locator.getSaveToContactButton().click();
+				// Thread.sleep(2000);
+				//  locator.getCloseButton().click();
+			
+				String expectedSuccessResponse = "Contact updated successfully";
+				String successResponse = locator.getChooseCustomizationToContinuePopup().getText();
+				assertEquals(successResponse, expectedSuccessResponse);
+				// assertTrue(expectedSuccessResponse.equals(successResponse));
 			}
 
 		}else {
@@ -82,7 +85,7 @@ public class PersonalContacts extends Base_class {
 		// Favorites
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, dependsOnGroups = "personalContact")
 	public void shouldAbleToCreateFavouritesProfile() throws InterruptedException {
 		
 		String CreateContactFirstnameField = "Aravind";
@@ -152,8 +155,8 @@ public class PersonalContacts extends Base_class {
 	}
 
 	@Test(priority = 4)
-	public void shouldAbleToCreateContactWithoutPhoneNumberEmailAddress() throws InterruptedException {
-		// String expectedMessage = "Phone Number or Email-ID is required";
+	public void shouldNotCreateContactWithoutPhoneNumberEmailAddress() throws InterruptedException {
+		String expectedMessage = "Phone Number or Email-ID is required";
 		String createContactFirstnameField = "Aravind";
 		String createContactLastnameField = "Srinivasan";
 
@@ -163,11 +166,11 @@ public class PersonalContacts extends Base_class {
 		sendkeys(locator.getCreateContactLastnameField(), createContactLastnameField);
 		Thread.sleep(2000);
 		locator.getCreateContactSaveContactbtn().click();
+		Thread.sleep(2000);
 
-		// Assert.assertEquals(locator.getChooseCustomizationToContinuePopup().getText(),
-		// expectedMessage);
-		Thread.sleep(3000);
-		locator.getCloseButton().click();;
+		assertEquals(locator.getChooseCustomizationToContinuePopup().getText(),expectedMessage);
+		// Thread.sleep(3000);
+		// locator.getCloseButton().click();
 
 	}
 
